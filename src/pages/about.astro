@@ -1,15 +1,18 @@
 ---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 import '../styles/global.css';
+
 const pageTitle = "About Me";
 
 const identity = {
   firstName: "Mark",
   country: "🇷🇺",
   occupation: "Developer",
-  hobbies: ["reading 📖", "watching 👀", "listening 🧏"],
+  hobbies: ["programming 📖", "playing videogames 👀", "listening to podcasts 🧏"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const fe_skills = ["Typescript", "React", "Next", "Astro",];
 const happy = true;
 const skill_issue = "navy";
 const fontWeight = 'bold';
@@ -36,20 +39,19 @@ const textCase = 'uppercase';
     </style>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+        <Header/>
 		    <h1>{pageTitle}</h1>
         <p>Here are a few facts about me:</p>
         <ul>
           <li>My name is {identity.firstName}.</li>
           <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-          <li>My hobbies {identity.hobbies.join(', ')}</li>
+          <li>My hobbies are {identity.hobbies.join(', ')}</li>
         </ul>
-        <p>My skills are:</p>
+        <p>My frontend skills are:</p>
         <ul>
-          {skills.map((skill) => <li class="skill">{skill}</li>)}
+          {fe_skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
         {happy && <p>I am happy to be learning Astro!</p>}
+        <Footer/>
 	</body>
 </html>

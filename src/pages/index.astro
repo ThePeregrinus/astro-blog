@@ -1,5 +1,12 @@
 ---
+import { Image } from 'astro:assets';
+
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+import lamda from '../assets/lamda.png'
 import '../styles/global.css';
+
 ---
 
 <html lang="en">
@@ -11,9 +18,12 @@ import '../styles/global.css';
 		<title>Astro</title>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-		<h1>My Astro Site</h1>
+		<Header/>
+		<h1>Peregrinus' personal blog</h1>
+		<Image src={lamda} width={100} alt="lamda" />
+		<Footer/>
+		<script>
+			import "../scripts/menu.js";
+		  </script>
 	</body>
 </html>
