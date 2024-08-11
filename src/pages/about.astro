@@ -1,9 +1,6 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
-
-const pageTitle = "About Me";
 
 const identity = {
   firstName: "Mark",
@@ -13,45 +10,20 @@ const identity = {
 };
 
 const fe_skills = ["Typescript", "React", "Next", "Astro",];
-const happy = true;
-const skill_issue = "navy";
-const fontWeight = 'bold';
-const textCase = 'uppercase';
----
+const happy = ['I am happy to be learning Astro!', 'Positive Mental Attitude 🏄', 'I ❤️ JS']
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-    <style define:vars={{skill_issue, fontWeight, textCase}}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skill_issue);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-    </style>
-	</head>
-	<body>
-        <Header/>
-		    <h1>{pageTitle}</h1>
-        <p>Here are a few facts about me:</p>
-        <ul>
-          <li>My name is {identity.firstName}.</li>
-          <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-          <li>My hobbies are {identity.hobbies.join(', ')}</li>
-        </ul>
-        <p>My frontend skills are:</p>
-        <ul>
-          {fe_skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
-        {happy && <p>I am happy to be learning Astro!</p>}
-        <Footer/>
-	</body>
-</html>
+---
+<BaseLayout pageTitle='About me'>
+  <p>Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+    <li>My hobbies are {identity.hobbies.join(', ')}</li>
+    <li>{happy[Math.floor(Math.random() * happy.length)]}</li>
+  </ul>
+  <p>My frontend skills are:</p>
+  <ul>
+    {fe_skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+</BaseLayout>
+
